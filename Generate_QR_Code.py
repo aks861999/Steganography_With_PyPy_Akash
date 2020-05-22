@@ -2,8 +2,8 @@
 import qrcode
 
 # Now set a object called data to be hidden in QR Code #
-data = "https://bytescare.com/"
-
+#data = "https://bytescare.com/"
+data = input("Please enter the Security Code")
 # Set output file name #
 filename = "site.png"
 
