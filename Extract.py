@@ -25,6 +25,8 @@ def decrypt():
     # These is the image produced from the encrypted image  
     cv2.imwrite('decrypted.png', img1) 
 
+decrypt()
+
 
 ####### Extract The Secret Code From QR Code #######
 
