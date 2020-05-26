@@ -66,4 +66,9 @@ Here is the generated output image ![sample](https://github.com/aks861999/Stegan
 Get the full code [here](https://github.com/aks861999/Steganography_With_PyPy_Akash/blob/master/hide%202_in_1.py)
 
 #### Decoding
+In this part we have to extract ![sample](https://github.com/aks861999/Steganography_With_PyPy_Akash/blob/master/site%20(1).png)
+from ![sample](https://github.com/aks861999/Steganography_With_PyPy_Akash/blob/master/output.png)
+
+
+
 Let img[i][j][l] be the pixel value of the image. Let v1 be 8 bits binary representation of img[i][j][l]. Let v2=v1[:4]+4 random bits and v3=v1[4:]+4 random bits. Then we assign img1[i][j][l] to v2 and img2[i][j][l] to v3.
