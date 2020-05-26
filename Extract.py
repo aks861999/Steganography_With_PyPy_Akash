@@ -42,7 +42,7 @@ data, bbox, straight_qrcode = detector.detectAndDecode(img)
 # if there is a QR code
 if bbox is not None:
     
-    #store the extracetd data in object 't'
+    #store the extracetd data in object 'secret_text'
     secret_text=data
     
     print(f"The Secret Text is:\n{data}")
