@@ -66,18 +66,96 @@ Here is the generated output image ![sample](https://github.com/aks861999/Stegan
 Get the full code [here](https://github.com/aks861999/Steganography_With_PyPy_Akash/blob/master/hide%202_in_1.py)
 
 #### Decoding
-In this part we have to extract 
+In this part we have to extract **site.png**
 
 
 
 ![sample](https://github.com/aks861999/Steganography_With_PyPy_Akash/blob/master/site%20(1).png)
 
 
-from 
+from the **outout.png**
 
 
 ![sample](https://github.com/aks861999/Steganography_With_PyPy_Akash/blob/master/output.png)
 
 
 
-Let img[i][j][l] be the pixel value of the image. Let v1 be 8 bits binary representation of img[i][j][l]. Let v2=v1[:4]+4 random bits and v3=v1[4:]+4 random bits. Then we assign img1[i][j][l] to v2 and img2[i][j][l] to v3.
+Let img[i][j][l] be the pixel value of the image **outout.png**. Let v1 be 8 bits binary representation of img[i][j][l]. Let v2=v1[:4]+4 random bits.
+```
+img = cv2.imread('output.png') 
+    width = img.shape[0] 
+    height = img.shape[1] 
+      
+    # img1 is a blank image #
+    img1 = np.zeros((width, height, 3), np.uint8)
+```
+
+
+Then we assign img1[i][j][l] to v2.
+
+```
+for i in range(width): 
+        for j in range(height): 
+            for l in range(3): 
+            
+                v1 = format(img[i][j][l], '08b') 
+                v2 = v1[4:] + chr(random.randint(0, 1)+48) * 4
+                
+                # Appending data to img1 #
+                img1[i][j][l]= int(v2, 2) 
+```
+
+
+After following this part you sould have got this like of image as **decrypted.png**
+
+
+![sample](https://github.com/aks861999/Steganography_With_PyPy_Akash/blob/master/decrypted.png)
+
+
+
+You can get the full code [here](https://github.com/aks861999/Steganography_With_PyPy_Akash/blob/master/Extract.py)
+
+
+### Extract The Secret Code From QR Code
+
+Now you are at the verge of success and good to extract the sectret code what you have embedded recently.
+
+Let's get started....
+
+You have to first read the **decrypted.pngc** file.
+```
+img = cv2.imread("decrypted.png")
+```
+declare an object **detector** as 
+```
+detector = cv2.QRCodeDetector()
+```
+Now detect and decode as 
+```
+data, bbox, straight_qrcode = detector.detectAndDecode(img)
+```
+If there is any QR code in **decrypted.pngc** then store the extracetd data in object **secret_text** and print it and you should have got the secret text printed.
+```
+secret_text=data
+print(f"The Secret Text is:\n{data}")
+```
+Now to identify the QR code visually you have to display the image with lines length of bounding box.
+```
+n_lines = len(bbox)
+    for i in range(n_lines):
+        # draw all lines
+        point1 = tuple(bbox[i][0])
+        point2 = tuple(bbox[(i+1) % n_lines][0])
+        cv2.line(img, point1, point2, color=(255, 0, 0), thickness=2)
+```
+Save the decrypted QR code as **decrypted_QR.png**
+```
+cv2.imwrite("decrypted_QR.png",img)
+```
+
+Kudos and Congratulations you have got your Decrypted QR code. Now display it to visually affirm your Job.
+```
+cv2.imshow("img", img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
