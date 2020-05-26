@@ -153,9 +153,10 @@ Save the decrypted QR code as **decrypted_QR.png**
 cv2.imwrite("decrypted_QR.png",img)
 ```
 
-Kudos and Congratulations you have got your Decrypted QR code. Now display it to visually affirm your Job.
+Kudos and Congratulations!!!!!! you have got your Decrypted QR code. Now display it to visually affirm your Job.
 ```
 cv2.imshow("img", img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
+![sample](https://github.com/aks861999/Steganography_With_PyPy_Akash/blob/master/decrypted_QR.png)
