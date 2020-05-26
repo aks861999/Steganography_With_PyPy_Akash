@@ -26,4 +26,4 @@ def encrypt():
                   
     cv2.imwrite('output.png', img1) 
   
-  encrypt()
+encrypt()
