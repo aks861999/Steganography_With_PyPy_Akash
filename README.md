@@ -67,8 +67,15 @@ Get the full code [here](https://github.com/aks861999/Steganography_With_PyPy_Ak
 
 #### Decoding
 In this part we have to extract 
+
+
+
 ![sample](https://github.com/aks861999/Steganography_With_PyPy_Akash/blob/master/site%20(1).png)
+
+
 from 
+
+
 ![sample](https://github.com/aks861999/Steganography_With_PyPy_Akash/blob/master/output.png)
 
 
